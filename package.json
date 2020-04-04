@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "scripts": {
+    "build:server": "lerna run build --scope={@monorepo/common,@monorepo/server}",
+    "build:web": "lerna run build --scope={@monorepo/common,@monorepo/app}",
+    "postinstall": "cd ./packages/app && expo-yarn-workspaces postinstall"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/react-native",
+      "**/react-native/**",
+      "**/expo",
+      "**/expo/**"
+    ]
+  },
+  "dependencies": {
+    "metro-config": "^0.56.0"
+  },
+  "devDependencies": {
+    "husky": "4.2.3",
+    "lerna": "3.20.2",
+    "lint-staged": "10.1.1",
+    "prettier": "2.0.2"
+  },
+  "resolutions": {
+    "graphql": "14.6.0"
+  }
+}
